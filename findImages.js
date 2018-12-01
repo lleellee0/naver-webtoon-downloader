@@ -3,6 +3,7 @@ const cheerio = require('cheerio');
 const downloadImages = require('./downloadImages.js')
 
 const findWebToonImages = (titleId, no) => { // titleId is Webtoon's id, no is Sequence's id
+  console.log(`${i}화 저장중..`);
   request({
     uri:`http://comic.naver.com/webtoon/detail.nhn?titleId=${titleId}&no=${no}`,
   }, function (error, response, body) {
@@ -64,7 +65,6 @@ const retryFindWebToonImages = (titleId, no, retryCount) => { // titleId is Webt
 
 for(let i = 1; i <= 273; i++)
   setTimeout(() => {
-    console.log(`${i}화 저장중..`);
     findWebToonImages(570503, i);
   }, i * 2 * 1000);
 // }, 0);
