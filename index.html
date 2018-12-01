@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Naver Webtoon Downloader</title>
+    <!-- CSS by https://codepen.io/frytyler/pen/EGdtg -->
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <div id="playlist"></div>
+
+    <div class="download">
+    	<h1>Naver Webtoon Downloader</h1>
+        <form method="post" onsubmit="return false;">
+          <input id="titleId" class="input-text" type="text" name="titleId" placeholder="Title Id" required="required"/>
+          <input id="startNo" class="input-text" type="text" name="startNo" placeholder="Start No" required="required"/>
+          <input id="endNo" class="input-text" type="text" name="endNo" placeholder="End No" required="required"/>
+          <input id="fake-path" class="input-text" type="path" placeholder="Select Download Path" required="required"/>
+          <input id="path" type="file" name="path" placeholder="Download Path" webkitdirectory/>
+          <button type="submit" class="btn btn-primary btn-block btn-large">
+            Start Download</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="./js/function.js"></script>
+  </body>
+</html>
