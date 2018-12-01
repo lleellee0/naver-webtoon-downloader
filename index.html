@@ -11,13 +11,13 @@
 
     <div class="download">
     	<h1>Naver Webtoon Downloader</h1>
-        <form method="post" onsubmit="return false;">
+        <form method="post" onsubmit="return downloadWebtoon();">
           <input id="titleId" class="input-text" type="text" name="titleId" placeholder="Title Id" required="required"/>
-          <input id="startNo" class="input-text" type="text" name="startNo" placeholder="Start No" required="required"/>
+          <input id="startNo" class="input-text" type="text" name="startNo" placeholder="Start No(recommend 1)" required="required"/>
           <input id="endNo" class="input-text" type="text" name="endNo" placeholder="End No" required="required"/>
           <input id="fake-path" class="input-text" type="path" placeholder="Select Download Path" required="required"/>
           <input id="path" type="file" name="path" placeholder="Download Path" webkitdirectory/>
-          <button type="submit" class="btn btn-primary btn-block btn-large">
+          <button id="download" type="submit" class="btn btn-primary btn-block btn-large">
             Start Download</button>
         </form>
     </div>

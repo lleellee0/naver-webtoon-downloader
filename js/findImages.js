@@ -2,8 +2,8 @@ const request = require('request');
 const cheerio = require('cheerio');
 const downloadImages = require('./downloadImages.js')
 
-const findWebToonImages = (titleId, no) => { // titleId is Webtoon's id, no is Sequence's id
-  console.log(`${i}화 저장중..`);
+const findWebToonImages = (titleId, no, path) => { // titleId is Webtoon's id, no is Sequence's id
+  console.log(`${no}화 저장중..`);
   request({
     uri:`http://comic.naver.com/webtoon/detail.nhn?titleId=${titleId}&no=${no}`,
   }, function (error, response, body) {
@@ -18,7 +18,7 @@ const findWebToonImages = (titleId, no) => { // titleId is Webtoon's id, no is S
       downloadImages.downloadWebToonImages(
         uriArr,
         no,
-        `.\\images`,
+        path,
         1,
         endNumber
       );
@@ -30,7 +30,7 @@ const findWebToonImages = (titleId, no) => { // titleId is Webtoon's id, no is S
   });
 }
 
-const retryFindWebToonImages = (titleId, no, retryCount) => { // titleId is Webtoon's id, no is Sequence's id
+const retryFindWebToonImages = (titleId, no, path, retryCount) => { // titleId is Webtoon's id, no is Sequence's id
   request({
     uri:`http://comic.naver.com/webtoon/detail.nhn?titleId=${titleId}&no=${no}`,
   }, function (error, response, body) {
@@ -45,7 +45,7 @@ const retryFindWebToonImages = (titleId, no, retryCount) => { // titleId is Webt
       downloadImages.downloadWebToonImages(
         uriArr,
         no,
-        `.\\images`,
+        path,
         1,
         endNumber
       );
@@ -63,11 +63,11 @@ const retryFindWebToonImages = (titleId, no, retryCount) => { // titleId is Webt
 //   163
 // );
 
-for(let i = 1; i <= 273; i++)
-  setTimeout(() => {
-    findWebToonImages(570503, i);
-  }, i * 2 * 1000);
-// }, 0);
+// for(let i = 1; i <= 273; i++)
+//   setTimeout(() => {
+//     findWebToonImages(570503, i);
+//   }, i * 2 * 1000);
+// // }, 0);
   
 
 module.exports = {
