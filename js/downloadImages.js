@@ -1,5 +1,6 @@
 const request = require('request');
 const fs = require('fs');
+const log = require('./log.js')
 
 const paddingNumber = (padString, number) => {
   let pad = padString;
@@ -31,6 +32,7 @@ const downloadWebToonImages = (uriArr, no, downloadPath, startNumber, endNumber)
         fs.writeFile(`${downloadPath}\\${paddingNumber("000", no)}-${paddingNumber("000", i)}.jpg`, body, 'binary', (err) => {if(err) console.log(err)});
       } else {
         console.log("Connection Timeout. " + no + " " + i + " 재시도 합니다. 남은 재시도 횟수 : 3");
+        log.addErrorLog(`${titleId}의 ${no}화에서 ${i}번째 그림을 다운로드하다가 실패했습니다. 남은 재시도 횟수 : 3`);
 
         retryDownloadWebToonImages(uri, no, downloadPath, startNumber, endNumber, i, 3);
 
@@ -62,6 +64,7 @@ const retryDownloadWebToonImages = (uri, no, downloadPath, startNumber, endNumbe
         fs.writeFile(`${downloadPath}\\${paddingNumber("000", no)}-${paddingNumber("000", i)}.jpg`, body, 'binary', (err) => {if(err) console.log(err)});
       } else {
         console.log("Connection Timeout. " + no + " " + i + " 재시도 합니다. 남은 재시도 횟수 : " + --retryCount);
+        log.addErrorLog(`${titleId}의 ${no}화에서 ${i}번째 그림을 다운로드하다가 실패했습니다. 남은 재시도 횟수 : ${retryCount}`);
 
         if(retryCount > 0)
           retryDownloadWebToonImages(uri, no, downloadPath, startNumber, endNumber, i, retryCount);

@@ -1,11 +1,11 @@
 let logArea = document.getElementById("logArea");
 
 const addLog = (message) => {
-    logArea.value = "[INFO] - " + logArea.value + `${message}\n`;
+    logArea.value = logArea.value + "[INFO] - " + `${message}\n`;
 }
 
 const addErrorLog = (errMessage) => {
-    logArea.value = "[ERROR] - " + logArea.value + `${errMessage}\n`;
+    logArea.value = logArea.value + "[ERROR] - " + `${errMessage}\n`;
 }
 
 const clearLog = () => {
