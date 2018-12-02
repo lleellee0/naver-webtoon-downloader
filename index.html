@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
-    <div id="playlist"></div>
-
     <div class="download">
     	<h1>Naver Webtoon Downloader</h1>
         <form method="post" onsubmit="return downloadWebtoon();">
@@ -19,6 +17,10 @@
           <input id="path" type="file" name="path" placeholder="Download Path" webkitdirectory/>
           <button id="download" type="submit" class="btn btn-primary btn-block btn-large">
             Start Download</button>
+            <hr>
+            <span style="font-size: 14px; color: white;">Below are required for adult certification</span>
+            <input id="nidAut" class="input-text" type="text" name="nid_aut" placeholder="NID_AUT(optional)"/>
+            <input id="nidSes" class="input-text" type="text" name="nid_ses" placeholder="NID_SES(optional)"/>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>

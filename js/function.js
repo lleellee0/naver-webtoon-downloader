@@ -21,10 +21,12 @@ const downloadWebtoon = () => {
   let startNo = document.getElementById("startNo").value;
   let endNo = document.getElementById("endNo").value;
   let path = document.getElementById("path").files[0].path;
+  let nidAut = document.getElementById("nidAut").value;
+  let nidSes = document.getElementById("nidSes").value;
   
   for(let i = startNo; i <= endNo; i++)
   setTimeout(() => {
-    findImages.findWebToonImages(titleId, i, path);
+    findImages.findWebToonImages(titleId, i, path, nidAut, nidSes);
   }, i * 2 * 1000);
   return false;
 }

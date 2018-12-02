@@ -2,9 +2,14 @@ const request = require('request');
 const cheerio = require('cheerio');
 const downloadImages = require('./downloadImages.js')
 
-const findWebToonImages = (titleId, no, path) => { // titleId is Webtoon's id, no is Sequence's id
+const findWebToonImages = (titleId, no, path, nid_aut, nid_ses) => { // titleId is Webtoon's id, no is Sequence's id
   console.log(`${no}화 저장중..`);
+  let cookieJar = request.jar();  // 19세 이상 인증 웹툰에 대해서는 19세 이상인 네이버 아이디로 로그인 된 계정에서 쿠키를 가져와야함.
+  cookieJar.setCookie(`NID_AUT=${nid_aut}; path=/; domain=naver.com`, 'http://comic.naver.com');
+  cookieJar.setCookie(`NID_SES=${nid_ses}; path=/; domain=naver.com`, 'http://comic.naver.com');
+
   request({
+    jar:cookieJar,
     uri:`http://comic.naver.com/webtoon/detail.nhn?titleId=${titleId}&no=${no}`,
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
@@ -24,14 +29,19 @@ const findWebToonImages = (titleId, no, path) => { // titleId is Webtoon's id, n
       );
     } else {
       console.log('err ' + no + "화. 재시도 합니다. 남은 재시도 횟수 : 3");
-      retryFindWebToonImages(titleId, no);
+      retryFindWebToonImages(titleId, no, path, nid_aut, nid_ses, 3);
       console.log(error);
     }
   });
 }
 
-const retryFindWebToonImages = (titleId, no, path, retryCount) => { // titleId is Webtoon's id, no is Sequence's id
+const retryFindWebToonImages = (titleId, no, path, nid_aut, nid_ses, retryCount) => { // titleId is Webtoon's id, no is Sequence's id
+  let cookieJar = request.jar();  // 19세 이상 인증 웹툰에 대해서는 19세 이상인 네이버 아이디로 로그인 된 계정에서 쿠키를 가져와야함.
+  cookieJar.setCookie(`NID_AUT=${nid_aut}; path=/; domain=naver.com`, 'http://comic.naver.com');
+  cookieJar.setCookie(`NID_SES=${nid_ses}; path=/; domain=naver.com`, 'http://comic.naver.com');
+
   request({
+    jar:cookieJar,
     uri:`http://comic.naver.com/webtoon/detail.nhn?titleId=${titleId}&no=${no}`,
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
@@ -51,7 +61,8 @@ const retryFindWebToonImages = (titleId, no, path, retryCount) => { // titleId i
       );
     } else {
       console.log('err ' + no + "화. 재시도 합니다. 남은 재시도 횟수 : " + --retryCount);
-      retryFindWebToonImages(titleId, no, retryCount);
+      if(retryCount > 0)
+        retryFindWebToonImages(titleId, no, path, nid_aut, nid_ses, retryCount);
       console.log(error);
     }
   });
