@@ -1,6 +1,6 @@
 {
-  "name": "capoo",
-  "version": "0.0.1",
+  "name": "naver-webtoon-downloader",
+  "version": "0.1.4",
   "description": "",
   "main": "main.js",
   "scripts": {
