@@ -25,10 +25,10 @@ const downloadWebtoon = () => {
   let nidAut = document.getElementById("nidAut").value;
   let nidSes = document.getElementById("nidSes").value;
   
-  for(let i = startNo; i <= endNo; i++)
-  setTimeout(() => {
-    findImages.findWebToonImages(titleId, i, path, nidAut, nidSes);
-  }, i * 2 * 1000);
+  for(let i = startNo ,j = 0; i <= endNo; i++, j++)
+    setTimeout(() => {
+      findImages.findWebToonImages(titleId, i, path, nidAut, nidSes);
+    }, j * 2 * 1000);
   return false;
 }
 
