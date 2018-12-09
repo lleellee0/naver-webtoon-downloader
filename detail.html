@@ -1,3 +1,25 @@
-<div class="viewer_images" style="background:#FFFFFF">
-    <img class="viewer_image" src="001-001.jpg" style="display: inherit; margin: 0 auto;">
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Naver Webtoon Downloader-Detail</title>
+  </head>
+  <body>
+    <div id="top_prev"></div>
+    <div id="top_next"></div>
+    <div id="top_list"></div>
+    <div id="viewer_images"></div>
+    <div id="bottom_prev"></div>
+    <div id="bottom_next"></div>
+    <div id="bottom_list"></div>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="./js/function.js"></script>
+    <script>
+        setTimeout(()=> {
+            setViewerImages();
+            setTopBottomMenu();
+        }, 0);
+    </script>
+  </body>
+</html>
