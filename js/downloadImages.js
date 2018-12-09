@@ -29,7 +29,7 @@ const downloadWebToonImages = (uriArr, no, downloadPath, startNumber, endNumber)
       encoding: 'binary'
     }, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        fs.writeFile(`${downloadPath}\\${paddingNumber("000", no)}-${paddingNumber("000", i)}.jpg`, body, 'binary', (err) => {if(err) console.log(err)});
+        fs.writeFile(`${downloadPath}\\${paddingNumber("0000", no)}-${paddingNumber("000", i)}.jpg`, body, 'binary', (err) => {if(err) console.log(err)});
       } else {
         console.log("Connection Timeout. " + no + " " + i + " 재시도 합니다. 남은 재시도 횟수 : 3");
         log.addErrorLog(`${titleId}의 ${no}화에서 ${i}번째 그림을 다운로드하다가 실패했습니다. 남은 재시도 횟수 : 3`);
@@ -61,7 +61,7 @@ const retryDownloadWebToonImages = (uri, no, downloadPath, startNumber, endNumbe
       encoding: 'binary'
     }, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        fs.writeFile(`${downloadPath}\\${paddingNumber("000", no)}-${paddingNumber("000", i)}.jpg`, body, 'binary', (err) => {if(err) console.log(err)});
+        fs.writeFile(`${downloadPath}\\${paddingNumber("0000", no)}-${paddingNumber("000", i)}.jpg`, body, 'binary', (err) => {if(err) console.log(err)});
       } else {
         console.log("Connection Timeout. " + no + " " + i + " 재시도 합니다. 남은 재시도 횟수 : " + --retryCount);
         log.addErrorLog(`${titleId}의 ${no}화에서 ${i}번째 그림을 다운로드하다가 실패했습니다. 남은 재시도 횟수 : ${retryCount}`);
