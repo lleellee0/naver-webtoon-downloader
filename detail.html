@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Naver Webtoon Downloader-Detail</title>
+  </head>
+  <body>
+    <div id="top_prev" style="display: inline-block;"></div>
+    <div id="top_next" style="display: inline-block;"></div>
+    <div id="top_list" style="display: inline-block;"></div>
+    <div id="viewer_images"></div>
+    <div id="bottom_prev" style="display: inline-block;"></div>
+    <div id="bottom_next" style="display: inline-block;"></div>
+    <div id="bottom_list" style="display: inline-block;"></div>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="./js/function.js"></script>
+    <script>
+        setTimeout(()=> {
+            setViewerImages();
+            setTopBottomMenu();
+        }, 0);
+    </script>
+  </body>
+</html>

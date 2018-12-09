@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Naver Webtoon Downloader-List</title>
+  </head>
+  <body>
+    (웹툰이 저장된 경로를 선택해주세요.) <input id="path" type="file" name="path" placeholder="Download Path" onchange="onViewerPathChange();" webkitdirectory/>
+    <ul id="list"></ul>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="./js/function.js"></script>
+    <script>
+        setTimeout(()=> {
+            clearViewerList();
+            setViewerList();
+        }, 0);
+    </script>
+  </body>
+</html>
