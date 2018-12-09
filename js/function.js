@@ -107,15 +107,15 @@ const setTopBottomMenu = () => {
   let bottomNext = document.getElementById("bottom_next");
   let bottomList = document.getElementById("bottom_list");
 
-  let no = parseInt(paddingNumber("000", getUrlVars()["no"]), 10);
+  let no = parseInt(paddingNumber("0000", getUrlVars()["no"]), 10);
   let path = decodeURI(getUrlVars()["path"]);
   console.log(no);
   
-  $(topPrev).append(`<a href="detail.html?no=${paddingNumber("000", no-1)}&path=${path}">이전화</a>`);
-  $(topNext).append(`<a href="detail.html?no=${paddingNumber("000", no+1)}&path=${path}">다음화</a>`);
+  $(topPrev).append(`<a href="detail.html?no=${paddingNumber("0000", no-1)}&path=${path}">이전화</a>`);
+  $(topNext).append(`<a href="detail.html?no=${paddingNumber("0000", no+1)}&path=${path}">다음화</a>`);
   $(topList).append(`<a href="list.html?path=${path}">목록으로</a>`);
-  $(bottomPrev).append(`<a href="detail.html?no=${paddingNumber("000", no-1)}&path=${path}">이전화</a>`);
-  $(bottomNext).append(`<a href="detail.html?no=${paddingNumber("000", no+1)}&path=${path}">다음화</a>`);
+  $(bottomPrev).append(`<a href="detail.html?no=${paddingNumber("0000", no-1)}&path=${path}">이전화</a>`);
+  $(bottomNext).append(`<a href="detail.html?no=${paddingNumber("0000", no+1)}&path=${path}">다음화</a>`);
   $(bottomList).append(`<a href="list.html?path=${path}">목록으로</a>`);
 }
 
