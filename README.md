@@ -3,7 +3,7 @@
 본 프로그램이 법적으로 문제가 있으면 알려주세요.
 기타 문의사항도 lleellee013@gmail.com으로 메일 바랍니다.
 
-이 프로그램은 Node.js와 Electron을 이용해 네이버 웹툰을 다운로드 받는 프로그램입니다. 사용을 위해선 먼저 [다운로드(0.1.4 버전)](https://github.com/lleellee0/naver-webtoon-downloader/releases/download/0.1.4.0/0.1.4.naver-webtoon-downloader-win32-ia32.zip)를 받아주세요. 32비트와 64비트 버전이 있는데, 32비트 버전을 추천드리고 다운로드 링크도 32비트 버전로 연결되어있습니다.
+이 프로그램은 Node.js와 Electron을 이용해 네이버 웹툰을 다운로드 받는 프로그램입니다. 사용을 위해선 먼저 [다운로드(0.2.0 버전)](https://github.com/lleellee0/naver-webtoon-downloader/releases/download/v0.2.0/v0.2.0.naver-webtoon-downloader-win32-ia32.zip)를 받아주세요. 32비트와 64비트 버전이 있는데, 32비트 버전을 추천드리고 다운로드 링크도 32비트 버전로 연결되어있습니다.
 
 다운로드가 완료되었으면 압축을 해제해주세요. 압축을 해제하고 폴더로 들어가면 'naver-webtoon-downloader.exe'라는 파일이 있습니다. 이 파일을 실행하시면 됩니다.
 
