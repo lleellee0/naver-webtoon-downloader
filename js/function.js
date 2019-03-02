@@ -27,7 +27,7 @@ const downloadWebtoon = () => {
   
   for(let i = startNo ,j = 0; i <= endNo; i++, j++)
     setTimeout(() => {
-      findImages.findWebToonImages(titleId, i, path, nidAut, nidSes);
+      findImages.findWebToonImages(titleId, i, path, nidAut, nidSes, 3);
     }, j * 2 * 1000);
   return false;
 }
