@@ -39,19 +39,6 @@ const findWebToonImages = (titleId, no, path, nid_aut, nid_ses, retryCount) => {
   });
 }
 
-// ex)
-// findWebToonImages(
-//   570503,
-//   163
-// );
-
-// for(let i = 1; i <= 273; i++)
-//   setTimeout(() => {
-//     findWebToonImages(570503, i);
-//   }, i * 2 * 1000);
-// // }, 0);
-  
-
 module.exports = {
   findWebToonImages: findWebToonImages
 }
