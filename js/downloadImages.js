@@ -38,21 +38,13 @@ const downloadWebToonImage = (uri, no, downloadPath, startNumber, endNumber, i, 
       } else {
         console.log("Connection Timeout. " + no + " " + i + " 재시도 합니다. 남은 재시도 횟수 : 3");
         log.addErrorLog(`${titleId}의 ${no}화에서 ${i}번째 그림을 다운로드하다가 실패했습니다. 남은 재시도 횟수 : 3`);
-
-        retryDownloadWebToonImages(uri, no, downloadPath, startNumber, endNumber, i, 3);
+        if(retryCount > 0)
+          retryDownloadWebToonImages(uri, no, downloadPath, startNumber, endNumber, i, retryCount--);
 
         console.log(error);
       }
     });
 }
-
-// ex)
-// downloadWebToonImages(
-//   'http://imgcomic.naver.net/webtoon/570503/163/20170118234836_ae150a0a5f1de3051579f72a0e1b27bb_IMAG01_',
-//   163
-//   '.',
-//   1,
-//   28);
 
 module.exports = {
   downloadWebToonImages: downloadWebToonImages
